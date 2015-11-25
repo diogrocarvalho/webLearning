@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;    
+}
+
+
+#menu_bar {
+    width: 200px;
+    height: 100%;    
+    background: blueviolet;
+    color: white;
+}
+
+#menu_bar ul {
+    padding-left: 0px;
+    font-family: sans-serif;
+    margin:auto;
+    list-style: none;
+    font-size: 14px;
+    background: blueviolet;
+}
+
+#menu_bar ul li{    
+    position: relative;    
+    color: white;
+}
+
+#menu_bar ul li a {
+    text-decoration: none;
+    color: azure;
+    display: block;
+    width: auto;
+    line-height: 50px;    
+}
+#menu_bar ul li a:hover{
+    background-color:  #b674f2;
+    color: #ffffff;
+}
