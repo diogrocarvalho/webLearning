@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     font-family:  arial,helvetica,sans-serif;
+ 
 }
 
 #topbar{
@@ -20,16 +21,14 @@ body{
 
 #logo {
     float: left;
-    padding-top: 5px;    
-    padding-right: 5px;
+    padding: 5px 5px 3px 0px;
     border-right: 1px solid #990000;
 }
 
 #signindiv {
     
     float: left;
-    padding: 6px 80px 10px 5px;
-        
+    padding: 6px 80px 12px 5px;        
     font-weight: bold;
     border-right: 1px solid #990000;
     font-size: 0.9em;    
@@ -38,4 +37,64 @@ body{
 #signindiv img{
     position: relative;
     top: 4px;
+}
+
+#topmenudiv{
+    
+    float: left;    
+    
+}
+
+#topmenudiv ul{    
+    
+    padding: 0;
+    margin: 0;    
+    
+}
+
+#topmenudiv li{
+    list-style: none;    
+    border-right: 1px solid #990000;
+    padding: 10px 10px 12px 10px;    
+    height: 100%;    
+    float:left;
+}
+
+#topmenudiv li:hover{    
+}
+
+#topmenudiv a{
+    text-decoration: none;
+    color:white;
+    font-weight: bold;      
+    font-size: 0.9em;
+}
+
+#searchdiv{
+    padding: 8px 5px 10px 10px;
+    float: left;
+}
+
+#searchdiv input[type=text]{    
+    
+    font-size: 0.9em;
+    border:none;
+    height: 25px;
+}
+#iconsearchdiv{
+    float: right;
+    margin-top: -1px;
+    
+}
+
+#iconsearchdiv button{    
+    border: none;
+    height: 28px;
+    width: 25px;
+    background-color: white;
+    background-image: url(images/lupa.png);
+    background-repeat: no-repeat;
+}
+button:hover{
+    cursor: pointer;
 }
