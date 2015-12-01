@@ -6,7 +6,7 @@ div {
 }
 
 .red{
-       
+    float:left;
     background-color: red;
 }
 
@@ -16,6 +16,6 @@ div {
 }
 
 .blue {
-    
+    float:right;
     background-color: blue;
 }
