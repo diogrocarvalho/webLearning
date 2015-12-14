@@ -155,3 +155,59 @@ button:hover{
     
 }
 
+#content {
+    width: 100%;
+    color: #535353;
+    font-size: 0.8em
+}
+
+.date{
+    font-weight: bold;
+}
+
+h1 {
+    color: #1f4f82;
+    font-size: 2.2em;
+}
+
+.headlineimage{
+    float:left;
+}
+
+#newsitem {
+    width: 280px;
+    float:left;
+    position: relative;
+    top: -15px;
+    left:10px;
+    font-size: 1.1em;
+    
+}
+
+#newsitem a{
+    text-decoration: none;
+    color:#1f4f82;
+}
+
+.links {    
+    line-height: 1.3em;
+}
+#newsitem a:hover{
+    text-decoration: underline; !important
+} 
+
+#watchandlisten{
+    float:right;
+    background-color: #EEEEEE;    
+    width: 320px;
+    height: 190px;
+}
+#watchandlisten p{
+    position: relative;
+    top:-10px;
+    left:10px;
+    color:#505050;
+    font-weight: bold;
+    font-size: 1.6em;
+    
+}
