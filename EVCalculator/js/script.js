@@ -22,11 +22,11 @@ var totalStatusSpendBox, //total ev spend in that status
 
 function createTable(){
     
-    var statusNames = ["Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
+    var statusNames = ["HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
     
     var table = $('#ev-table');
     
-    for (var i=0; i<5; i++){
+    for (var i=0; i<6; i++){
       $('#ev-table > tbody:last-child').append(
           '<tr>'+
               '<td><span class="statusName">'+statusNames[i]+'</span></td>' +
@@ -34,9 +34,9 @@ function createTable(){
               '<td><span class="remainingEv">0</span></td>'+
               '<td><span class="missedEv">0</span></td>'+
               '<td><input type="number" name="'+(statusNames[i]).trim+'" maxlength="3" min="0" max="252" class="targetBox" value="0"></td>'+
-              '<td><input class="setTargetBox" type="button" value="Set Target Value"/></td>' +
-              '<td><input type="button" value="+1" class="sumButton"/></td><td><input type="button" value="+4" class="sumButton"/></td>'+
-              '<td><input type="button" value="+8" class="sumButton"/></td><td><input type="button" value="+12"class="sumButton"/></td>'+
+              '<td><input class="setTargetBox setTargetButton" type="button" value="Set Target Value"/></td>' +
+              '<td colspan="4"><input type="button" value="+1" class="sumButton"/><input type="button" value="+4" class="sumButton"/>'+
+              '<input type="button" value="+8" class="sumButton"/><input type="button" value="+12"class="sumButton"/></td>'+
           '</tr>'
       );
     }
