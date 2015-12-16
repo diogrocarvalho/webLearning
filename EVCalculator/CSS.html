@@ -1,15 +1,14 @@
-<!doctype html>	
-<html>	
-<head>	
+<!DOCTYPE html>
+<html><head>	
 <title>CSS</title>	
 
-<meta charset="utf-8" />	
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />	
-<meta name="viewport" content="width=device-width, initial-scale=1" />	
+<meta charset="utf-8">	
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">	
+<meta name="viewport" content="width=device-width, initial-scale=1">	
 
 <meta name="description" content="A jouney of a thousand miles begins with a
-single step." />
-<link rel="stylesheet" href="style.css" type="text/css">
+single step.">
+<link rel="stylesheet" href="CSS_arquivos/style.css" type="text/css">
 </head>	
 
 <body>        
@@ -39,7 +38,7 @@ single step." />
     
     <div id="table-holder">
         <table id="ev-table">
-            <tr>
+            <tbody><tr>
                 <th>Status</th> <th>Total Spend</th> <th>Remaining</th> <th>Missed EV</th> <th>Target</th> <th>Set Target</th>
             </tr>
             <tr>
@@ -47,20 +46,20 @@ single step." />
                 <td><span class="totalStatusSpend">000</span></td>
                 <td><span class="remainingEv">000</span></td> 
                 <td><span class="missedEv">000</span></td>
-                <td><input type="number" name="hp" maxlength="3" min="0" max="252" class="targetBox"></td> 
-                <td><input class="setTargetBox" type="button" value="Set Target Value"/></td> 
-                <td><input type="button" value="+1" class="sumButton"/></td><td><input type="button" value="+4" class="sumButton"/></td>
-                <td><input type="button" value="+8" class="sumButton"/></td><td><input type="button" value="+12"class="sumButton"/></td>
+                <td><input name="hp" maxlength="3" min="0" max="252" class="targetBox" type="number"></td> 
+                <td><input disabled="false" class="setTargetBox" value="Set Target Value" type="button"></td> 
+                <td><input disabled="disabled" value="+1" type="button"></td><td><input disabled="disabled" value="+4" type="button"></td>
+                <td><input disabled="disabled" value="+8" type="button"></td><td><input disabled="disabled" value="+12" type="button"></td>
             </tr>
-        </table>
+        </tbody></table>
     <p>Total EV Remaining:<span id="totalEVRemaining" class="label">510</span></p>
     <p>Total EV Spend:<span id="totalEVSpend" class="label">0</span></p>
         
     </div>
-    <script type="text/javascript" src="jquery-2.1.4.min.js"></script> 
-    <script type="text/javascript" src="script.js"></script> 
+    <script type="text/javascript" src="CSS_arquivos/jquery-2.js"></script> 
+    <script type="text/javascript" src="CSS_arquivos/script.js"></script> 
     
-</body>
+
     
-</html>
-    
+
+    </body></html>
