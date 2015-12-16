@@ -9,56 +9,45 @@
 
 <meta name="description" content="A jouney of a thousand miles begins with a
 single step." />
-<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>	
 
-<body>        
-    <div id="status-holder-list">
-        <ul>
-            <li>HP</li>
-            <li>Attack</li>
-            <li>Defense</li>
-            <li>Special Attack</li>
-            <li>Special Defense</li>
-            <li>Speed</li>            
-        </ul>
-    </div>
-    
-    <div id="total-holder-list">
-        <ul>
-            <li id="total_hp">000</li>
-            <li id="total_at">0</li>
-            <li id="total_df">0</li>
-            <li id="total_sa">0</li>
-            <li id="total_sd">0</li>
-            <li id="total_sp">0</li>            
-        </ul>
-    </div>
-    
-    
+<body>   
     
     <div id="table-holder">
         <table id="ev-table">
-            <tr>
-                <th>Status</th> <th>Total Spend</th> <th>Remaining</th> <th>Missed EV</th> <th>Target</th> <th>Set Target</th>
-            </tr>
-            <tr>
-                <td><span class="statusName">HP</span></td>
-                <td><span class="totalStatusSpend">000</span></td>
-                <td><span class="remainingEv">000</span></td> 
-                <td><span class="missedEv">000</span></td>
-                <td><input type="number" name="hp" maxlength="3" min="0" max="252" class="targetBox"></td> 
-                <td><input class="setTargetBox" type="button" value="Set Target Value"/></td> 
-                <td><input type="button" value="+1" class="sumButton"/></td><td><input type="button" value="+4" class="sumButton"/></td>
-                <td><input type="button" value="+8" class="sumButton"/></td><td><input type="button" value="+12"class="sumButton"/></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th>Status</th> <th>Total Spend</th> <th>Remaining</th> <th>Missed EV</th> <th>Target</th> <th>Set Target</th> <th colspan="4">Add EV</th>
+                </tr>
+                <tr>
+                    <td><span class="statusName">HP</span></td>
+                    <td><span class="totalStatusSpend">0</span></td>
+                    <td><span class="remainingEv">0</span></td> 
+                    <td><span class="missedEv">0</span></td>
+                    <td><input type="number" name="hp" maxlength="3" min="0" max="252" class="targetBox" value="0"></td> 
+                    <td><input class="setTargetBox" type="button" value="Set Target Value"/></td> 
+                    <td colspan="4">
+                        <input type="button" value="+1" class="sumButton"/>
+                        <input type="button" value="+4" class="sumButton"/>
+                        <input type="button" value="+8" class="sumButton"/>
+                        <input type="button" value="+12"class="sumButton"/>
+                    </td>
+                </tr>
+            </tbody>
         </table>
-    <p>Total EV Remaining:<span id="totalEVRemaining" class="label">510</span></p>
-    <p>Total EV Spend:<span id="totalEVSpend" class="label">0</span></p>
         
-    </div>
-    <script type="text/javascript" src="jquery-2.1.4.min.js"></script> 
-    <script type="text/javascript" src="script.js"></script> 
+        
+        
+        <p>Total EV Remaining:<span id="totalEVRemaining" class="label">510</span></p>
+        <p>Total EV Spend:<span id="totalEVSpend" class="label">0</span></p>
+        
+       
+    </div>    
+   
+    
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script> 
+    <script type="text/javascript" src="js/script.js"></script> 
     
 </body>
     

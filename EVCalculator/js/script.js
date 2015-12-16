@@ -20,6 +20,30 @@ var totalStatusSpendBox, //total ev spend in that status
     evRemaingBox, //ev remaining to reach the target in that status
     evMissedBox;   //ev passed from the target
 
+function createTable(){
+    
+    var statusNames = ["Attack", "Defense", "Special Attack", "Special Defense", "Speed"];
+    
+    var table = $('#ev-table');
+    
+    for (var i=0; i<5; i++){
+      $('#ev-table > tbody:last-child').append(
+          '<tr>'+
+              '<td><span class="statusName">'+statusNames[i]+'</span></td>' +
+              '<td><span class="totalStatusSpend">0</span></td>' +
+              '<td><span class="remainingEv">0</span></td>'+
+              '<td><span class="missedEv">0</span></td>'+
+              '<td><input type="number" name="'+(statusNames[i]).trim+'" maxlength="3" min="0" max="252" class="targetBox" value="0"></td>'+
+              '<td><input class="setTargetBox" type="button" value="Set Target Value"/></td>' +
+              '<td><input type="button" value="+1" class="sumButton"/></td><td><input type="button" value="+4" class="sumButton"/></td>'+
+              '<td><input type="button" value="+8" class="sumButton"/></td><td><input type="button" value="+12"class="sumButton"/></td>'+
+          '</tr>'
+      );
+    }
+   
+}
+  createTable();  
+    
 $( document ).ready(function() {
     
     //set global variables
@@ -77,10 +101,15 @@ function updateInAdd(num) {
     totalStatusSpendBox.text(parseInt(totalStatusSpend));
     
     $("#totalEVRemaining").text(geralEVRemaing);
-    $("#totalEVSpend").text(geralEVSpend);    
+    $("#totalEVSpend").text(geralEVSpend);
 }
 
-
+function canAddMore(){
+    if(totalStatusSpend == 252) {
+        return false;
+    }
+    return true;
+}
 
 function isMaxed(status, totalStatusSpend){
     if(totalSpend = evTarget){
@@ -137,9 +166,11 @@ $('table input[type="button"]').click(function() {
             break;
     }
     
-    
-    updateInAdd(num); //atualiza os valores ao apertar o botão de adicionar ev
-    
+    if(canAddMore()){
+        updateInAdd(num); //atualiza os valores ao apertar o botão de adicionar ev
+    }else{
+        alert("You reach the max EV you can distribute into this status!");
+    }
     isMaxed(currentStatusBox.text());
     });
 
@@ -170,7 +201,18 @@ function unlockRowButtons(buttonClicked) {
 
 //validates inserted value (if it is a number and it is in valide range)
 function validateInsertedValue(insertedValue){
-   var errorTxt = "Invalid Number: ";
+    var errorTxt = "Invalid Number: ";
+    var sum = 0;
+    var aux=0;
+    $("#ev-table").find(".targetBox").each(
+        function( ) {            
+            sum += parseInt($(this).val());            
+        });
+    
+    if(sum > 510){
+        alert("You can't distribute more than 510 EV.");
+    }
+    
     if(isNaN(insertedValue) || insertedValue == ""){
         alert(errorTxt + "Type or select a valid number!");
         return false;        
