@@ -1,0 +1,78 @@
+<!doctype html>	
+<html>	
+<head>	
+<title>CSS</title>	
+
+<meta charset="utf-8" />	
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />	
+<meta name="viewport" content="width=device-width, initial-scale=1" />	
+
+<meta name="description" content="A jouney of a thousand miles begins with a
+single step." />
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>	
+
+<body>        
+    <div id="status-holder-list">
+        <ul>
+            <li>HP</li>
+            <li>Attack</li>
+            <li>Defense</li>
+            <li>Special Attack</li>
+            <li>Special Defense</li>
+            <li>Speed</li>            
+        </ul>
+    </div>
+    
+    <div id="total-holder-list">
+        <ul>
+            <li id="total_hp">000</li>
+            <li id="total_at">0</li>
+            <li id="total_df">0</li>
+            <li id="total_sa">0</li>
+            <li id="total_sd">0</li>
+            <li id="total_sp">0</li>            
+        </ul>
+    </div>
+    
+    
+    <div id="table-holder">
+        <table id="ev-table">
+            <tr>
+                <th>Status</th> <th>Total Spend</th> <th>Target</th> <th>Set Target</th>
+            </tr>
+            <tr>
+                <td>HP</td> <td>000</td> <td><input type="number" name="hp" min="0" max="252" maxlength="3" class="targetBox"></td> <td><input class="setTargetBox" type="button" value="Set Target Value"/></td> 
+                <td><input type="button" value="+1"/></td><td><input type="button" value="+4"/></td><td><input type="button" value="+8"/></td><td><input type="button" value="+12"/></td>
+            </tr>
+<!--           <tr>
+                <td>Attack</td> <td>000</td> <td><input type="number" name="attack" min="0" max="252" maxlength="3"></td>
+                <td><input type="button" value="+1"/></td><td><input type="button" value="+4"/></td><td><input type="button" value="+8"/></td><td><input type="button" value="+12"/></td>  
+            </tr>
+            <tr>
+                <td>Defense</td> <td>000</td> <td><input type="number" name="defense" min="0" max="252" maxlength="3"></td>
+               <td><input type="button" value="+1"/></td><td><input type="button" value="+4"/></td><td><input type="button" value="+8"/></td><td><input type="button" value="+12"/></td>  
+            </tr>
+            <tr>
+                <td>Special Attack</td> <td>000</td> <td><input type="number" name="special-attack" min="0" max="252" maxlength="3"></td>
+                <td><input type="button" value="+1"/></td><td><input type="button" value="+4"/></td><td><input type="button" value="+8"/></td><td><input type="button" value="+12"/></td>  
+            </tr>
+            <tr>
+                <td>Special Defense</td> <td>000</td> <td><input type="number" name="special-defense" min="0" max="252" maxlength="3"></td>
+               <td><input type="button" value="+1"/></td><td><input type="button" value="+4"/></td><td><input type="button" value="+8"/></td><td><input type="button" value="+12"/></td>  
+            </tr>
+            <tr>
+                <td>Speed</td> <td>000</td> <td><input type="number" name="speed" min="0" max="252" maxlength="3"></td>
+               <td><input type="button" value="+1"/></td><td><input type="button" value="+4"/></td><td><input type="button" value="+8"/></td><td><input type="button" value="+12"/></td>  
+          </tr>
+-->
+        </table>
+     
+    </div>
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script> 
+    <script type="text/javascript" src="script.js"></script> 
+    
+</body>
+    
+</html>
+    

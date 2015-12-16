@@ -1,0 +1,57 @@
+body{
+    margin:0;
+    padding: 0;    
+    
+    font-family: TakaoPGothic;
+}
+
+#status-holder-list{
+    
+    margin:0;
+    width: 200px;
+    background-color: mediumaquamarine;
+    float:left;
+    
+}
+
+#status-holder-list ul{
+    padding: 0;
+    margin: 0;
+}
+
+li{list-style: none;}
+
+#status-holder-list li{
+    padding: 5px;    
+    border-bottom: 1px solid white;
+}
+
+#total-holder-list{
+    background-color: mediumaquamarine;
+    width:50px;
+    float:left;
+    margin:0 0 0 2px;
+}
+
+#total-holder-list li{
+    padding: 5px;    
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+
+#total-holder-list ul{
+    padding: 0;
+    margin: 0;
+}
+
+#table-holder{
+    float:left;    
+}
+
+
+
+#ev-table{
+    margin-left: 10px;
+    text-align: center;
+    
+}
