@@ -1,0 +1,103 @@
+/* verde inicial #A0E061*/
+
+body{
+    margin:0;
+    padding: 0;
+    font-family: TakaoPGothic;
+    color: white;
+    background-color: aliceblue;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0; 
+}
+
+input[type=number]{
+-moz-appearance:textfield;
+}
+h2{text-align: center;}
+
+input[type="button"]{border-style:none;}
+
+input[type="text"]{width: 50px;}
+
+input{text-align: center;}
+
+
+.right{
+    float:right;
+    padding-right: 5px;    
+}
+
+.left{float:left;}
+
+.fixedwidth{    
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+.status-container{
+    float: left;
+    width: 300px;    
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.centerAll{
+    margin: auto;
+    width: 70%;    
+    padding: 10px;
+}
+
+.target-box{
+    margin:10px;
+}
+
+.boxes{
+    margin:15px 10px 20px 10px;
+}
+
+.sumButton {
+    float: left; 
+    margin-left: 10px;
+    height: 25px;
+    width:  40px;
+}
+
+.center {
+    margin: auto;
+    width: 70%;    
+    padding: 10px;
+    padding-bottom: 35px;
+    border-top: 1px solid white;
+}
+
+.setTargetButton{
+    height: 25px;
+}
+.target-value{
+    width: 50px;
+}
+
+#status-container-hp{
+    background-color: #6ec425;
+}
+
+#status-container-at{
+    background-color: rgb(199, 199, 43);
+}
+#status-container-de{
+    background-color: #e89817;
+}
+#status-container-sd{
+    background-color: #415eaf;
+}
+#status-container-sa{
+    background-color: #4aadcb;
+}
+#status-container-sp{
+    background-color: #7c3d98;
+}
