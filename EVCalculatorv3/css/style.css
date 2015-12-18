@@ -109,3 +109,8 @@ input{text-align: center;}
     }
 }
 
+@media screen and (max-width: 383px){
+    .fixedwidth {                
+         margin: auto 10px 10px 30px;       
+    }
+}
