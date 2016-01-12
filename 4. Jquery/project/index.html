@@ -1,0 +1,84 @@
+<!doctype html>	
+<html>	
+<head>	
+<title>JQuery</title>	
+
+<meta charset="utf-8" />	
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />	
+<meta name="viewport" content="width=device-width, initial-scale=1" />	
+
+<meta name="description" content="A jouney of a thousand miles begins with a
+single step." />
+    
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<link rel="stylesheet" href="style.css" type="text/css">
+   
+</head>	
+
+<body>
+    
+    <div id="container">
+        <div id="error"></div>
+        <div id="success"></div>
+        <form id="validationForm">
+        
+        <label for="email">E-mail: </label>
+        <input id="email" name="email"/>
+        
+        <label for="phone">Phone: </label>
+        <input name="phone" id="phone"/>
+        
+        <label for="password">Password: </label>
+        <input name="password" type="password" id="pass"/>
+        
+        <label for="confirmPassword">Confirm Password: </label>
+        <input name="confirmPassword" type="password" id="confirmpass"/>
+        
+        <input id="submitButton" type="submit" value="Submit">
+        
+        </form>
+    </div>
+    
+    
+    
+
+    <script type="text/javascript">
+        
+        function isValidEmailAddress(emailAddress) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);
+};
+        
+        
+        $("#validationForm").submit(function(event){
+            var errorMessage = "";
+            event.preventDefault();
+            
+            if(!isValidEmailAddress($("#email").val())){
+                errorMessage+="* Please enter a valid e-mail address. <br/>";
+            }
+            
+            if(!$.isNumeric($("#phone").val())){
+                errorMessage+="* Please enter a valid phone number.<br/>";
+            }
+            
+            if(!($("#pass").val() == $("#confirmpass").val())){
+                errorMessage+="* The passwords are not the same.<br/>";
+            }
+            
+            if(errorMessage == ""){
+                
+                $("#success").html("Success!");
+            }
+            
+            $("#error").html(errorMessage);
+            
+        });
+        
+    </script>
+    
+</body>
+
+
+
+</html>

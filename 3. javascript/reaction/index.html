@@ -1,0 +1,78 @@
+<!doctype html>	
+<html>	
+<head>	
+<title>CSS</title>	
+
+<meta charset="utf-8" />	
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />	
+<meta name="viewport" content="width=device-width, initial-scale=1" />	
+
+<meta name="description" content="A jouney of a thousand miles begins with a
+single step." />
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>	
+
+<body>
+    <p id="time"> Seu tempo: </p>
+    <div id="box"></div>
+
+
+    <script>
+
+        var timeBegging;
+        console.log(timeBegging);
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function makeBox() {
+             var top = Math.random() * 350;
+             var left = Math.floor(Math.random()*500)+1;
+             left=left+"px";
+           
+             setTimeout(function() {
+                 
+                if(Math.random() < 0.5){
+                    document.getElementById("box").style.borderRadius = '100px';
+                }else{
+                    document.getElementById("box").style.borderRadius = '0px';
+                }
+
+                
+                document.getElementById("box").style.marginTop = top+"px";
+                document.getElementById("box").style.marginLeft = left;
+                document.getElementById("box").style.backgroundColor = getRandomColor();
+                document.getElementById("box").style.display="block";
+                 
+                timeBegging = Date.now();
+                 
+            }, (Math.random() * 3000));
+        }
+
+
+        document.getElementById("box").onclick = function(){
+            var reaction = (Date.now() - timeBegging)/1000;
+            this.style.display = 'none';
+            document.getElementById('time').innerHTML = "Seu tempo: " + reaction+'s';
+            makeBox();
+
+        };
+
+
+
+
+        makeBox();
+
+    </script>
+
+</body>
+
+
+
+</html>

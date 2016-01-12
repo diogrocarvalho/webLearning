@@ -1,0 +1,89 @@
+<!doctype html>	
+<html>	
+<head>	
+<title>JQuery</title>	
+
+<meta charset="utf-8" />	
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />	
+<meta name="viewport" content="width=device-width, initial-scale=1" />	
+
+<meta name="description" content="A jouney of a thousand miles begins with a
+single step." />
+    
+      <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+    
+<link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="jquery-ui.min.css" type="text/css"/>
+    
+   
+    
+    
+</head>	
+
+<body>
+    
+    <!--<div id="circle"></div>
+    <div class="square"></div>
+    <div><p>Desaparecendo e reaparecendo!</p></div>
+
+    <div id="box">Drag me around</div>
+    <div id="target"></div>
+    
+
+    <div id="resizable" class="ui-widget-content">
+        <h3 class="ui-widget-header">Resizable</h3>
+    </div>
+    
+    <div id="accordion">
+    <h3>Title</h3>
+    <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </p> <h3>Title</h3>
+    <div><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </p></div>    <h3>Title</h3>
+    <div><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </p></div>    <h3>Title</h3>
+    <div><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </p></div>    <h3>Title</h3>
+    <div><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </p></div>    <h3>Title</h3>
+    <div><p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </p></div>
+    </div>
+    -->
+    <ul>
+        <li>Banana</li>
+        <li>Limão</li>
+        <li>Pêra</li>
+        <li>Uva</li>
+    </ul>
+    
+<script>
+        
+        
+        /*$('#circle').click(function(){
+            $("p").fadeOut();
+        });
+        
+        $('.square').click(function(){
+            $("p").fadeIn();
+        });
+        */
+        $("#box").draggable();
+    
+        $("#target").droppable({
+            drop:function(ui,event){
+                $("#target").css("backgroundColor","#2bbc68");
+            }            
+        });
+    
+    $("#accordion").accordion();
+       
+        $(function(){
+            $("#resizable").resizable();    
+        });
+        
+    $("ul").sortable();
+        
+    </script>
+    
+    
+</body>
+
+
+
+</html>
