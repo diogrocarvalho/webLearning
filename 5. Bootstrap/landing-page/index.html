@@ -20,38 +20,40 @@
       <style>
           body{
               margin: 0;
-              padding: 50px 0;
+              padding:0;
           }
           #home{
               
-              background-color: blue;
-              background-image: url(img/home.jpg);
-              background-repeat: no-repeat;
-              background-size: 100% 100%;
+              background-color: floralwhite;
+              background-image: url(img/home2.jpg);              
+              background-size: cover;
           }
           #about{
-              background-color: #e36d6d;
+              background-color: #ffffff;
           }
           #downloadapp{
-              background-color: #69b569;
+              background-color: #fffb8d;
           }
           
-          .holderDiv{
-              height: 800px;
-              width: 100%;
-              
+          .holderDiv {
+              padding: 15% 0 15% 0;
+              width: 100%;              
           }
           .centerDiv{
               position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-              font-size: 2em;
-              
           }
-         
+          
+          .bold{
+              font-weight: bold;
+          }
+          .marginTop{
+              margin-top: 30px;
+          }
       </style>
   </head>
   <body data-spy="scroll" data-target=".navbar-collapse">
       
-      <div class="navbar navbar-default navbar-fixed-top" id="menu">
+      <div class="navbar navbar-inverse navbar-fixed-top" id="menu">
           <div class="container">
               <div class="navbar-header ">
                   
@@ -90,35 +92,98 @@
       </div>
       
       <div id="home" class="holderDiv">
-          <div class="centerDiv text-center">              
-              <h1><strong>My awesome app!</strong></h1>
-              <h2>This is why should download this fantastic app.</h2>
-              <h3>
-                  Some more information about the app. You can go into a little more
-                  detail here if you want to.
-              </h3>
-              <br/>
-              
-              <h3><strong>Interest? Join our mailing list!</strong></h3>
-              <br/>
-              <div class="input-group">
-                  <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-                  <label for="email" class="sr-only">E-mail</label>
-                  <input class="form-control" type="email" name="email" placeholder="Your email">   
-              </div>
-              <br/>
-              <div class="form-group">
-                  <button class="btn btn-success">Submit</button>
+          <div class="text-center">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-12 ">
+                          
+                          <h1 class="bold">My awesome app!</h1>
+                          
+
+                          <p class="lead">This is why should download this fantastic app.</p>
+
+                          <p>
+                              Some more information about the app. You can go into a little more
+                              detail here if you want to.
+                          </p>
+
+                          
+                          <p class="bold marginTop">Interest? Join our mailing list!</p>
+
+                          <div class="container">
+                              <div class="row">
+                                  <div class="col-md-6 col-md-offset-3">
+                                      <div class="input-group">
+                                          <span class="input-group-addon">@</span>
+                                          <label for="email" class="sr-only">E-mail</label>
+                                          <input class="form-control" type="email" name="email" placeholder="Your email">   
+                                          
+                                      </div>
+                                      <input type="submit" class="btn btn-success btn-lg marginTop" value="Submit">
+                                  </div>
+                              </div>
+                          </div>
+                         
+                      </div>
+                  </div>
               </div>
           </div>  
       </div>
-      <div id="about" class="holderDiv">aqui</div>
-      <div id="downloadapp" class="holderDiv">oi</div>
-      
-      
-      <div class="container">
+      <div id="about" class="holderDiv">
+          
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12 text-center" >    
+                      <h1>Why This App Is Awesome</h1>
+                      <p>Sumary of the app's awesomeness</p>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-4">
+                      <h1>Text 1</h1>
+                      <p>
+                          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+                      </p>
+                      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                  </div>
+                  <div class="col-md-4">
+                      <h1>Text 2</h1>
+                      <p>
+                          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+                      </p>
+                      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                  </div>
+                  <div class="col-md-4">
+                  
+                      <h1>Text 3</h1>
+                      <p>
+                          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+                      </p>
+                      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                  </div>
+              </div>
+          </div>
           
       </div>
+      
+      <div id="downloadapp" class="holderDiv">
+          <div class="container">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+</p><p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+</p>
+<p>Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
+
+</p>
+          </div>
+      </div>
+      
+      
+      
+      
+      
     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -127,6 +192,8 @@
     <script src="../bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
         
       <script>
+          
+          $(".holderDiv").css("min-height", $(window).height());
           /*
           var menuHeight = $("#menu").height();
           var windowHeight = $(window).height();
