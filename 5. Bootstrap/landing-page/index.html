@@ -18,29 +18,42 @@
     <![endif]-->
       
       <style>
+          body{
+              margin: 0;
+              padding: 50px 0;
+          }
           #home{
+              
               background-color: blue;
               background-image: url(img/home.jpg);
+              background-repeat: no-repeat;
+              background-size: 100% 100%;
           }
           #about{
-              background-color: red;
+              background-color: #e36d6d;
           }
           #downloadapp{
-              background-color: green;
+              background-color: #69b569;
           }
           
           .holderDiv{
               height: 800px;
               width: 100%;
+              
           }
-          
+          .centerDiv{
+              position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+              font-size: 2em;
+              
+          }
+         
       </style>
   </head>
   <body data-spy="scroll" data-target=".navbar-collapse">
       
-      <div class="navbar navbar-default">
+      <div class="navbar navbar-default navbar-fixed-top" id="menu">
           <div class="container">
-              <div class="navbar-header">
+              <div class="navbar-header ">
                   
                   <a href="#" class="navbar-brand">Diogo Carvalho</a>
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -50,21 +63,55 @@
                       <span class="icon-bar"></span>
                   </button>
                   
-                  
               </div>
               
-              <div class="collapse navbar-collapse">
+              <div class="collapse navbar-collapse ">
                   
                   <ul class="nav navbar-nav">
                       <li class="active"><a href="#home">Home</a></li>
                       <li><a href="#about">About</a></li>
                       <li><a href="#downloadapp">Download The App</a></li>
                   </ul>
+                  
+                  <form class="navbar-form navbar-right" id="loginForm">
+                      <div class="form-group ">
+                          <label class="sr-only" for="username">Username</label>
+                          <input type="text" name="username" class="form-control" placeholder="Username"/>
+                      </div>
+                      <div class="form-group">
+                          <input type="password" name="password" class="form-control" placeholder="Password"/>
+                      </div>
+                      <div class="form-group">
+                          <button class="btn btn-success">Log In</button>
+                      </div>
+                  </form>                  
               </div>
           </div>      
       </div>
       
-      <div id="home" class="holderDiv">olá</div>
+      <div id="home" class="holderDiv">
+          <div class="centerDiv text-center">              
+              <h1><strong>My awesome app!</strong></h1>
+              <h2>This is why should download this fantastic app.</h2>
+              <h3>
+                  Some more information about the app. You can go into a little more
+                  detail here if you want to.
+              </h3>
+              <br/>
+              
+              <h3><strong>Interest? Join our mailing list!</strong></h3>
+              <br/>
+              <div class="input-group">
+                  <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+                  <label for="email" class="sr-only">E-mail</label>
+                  <input class="form-control" type="email" name="email" placeholder="Your email">   
+              </div>
+              <br/>
+              <div class="form-group">
+                  <button class="btn btn-success">Submit</button>
+              </div>
+          </div>  
+      </div>
       <div id="about" class="holderDiv">aqui</div>
       <div id="downloadapp" class="holderDiv">oi</div>
       
@@ -78,5 +125,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+        
+      <script>
+          /*
+          var menuHeight = $("#menu").height();
+          var windowHeight = $(window).height();
+          var divHeight = windowHeight - menuHeight;//height of content divs
+          $(".holderDiv").css("height", divHeight +"px");
+          
+          console.log( $(".holderDiv").height());
+          */
+      </script>
   </body>
 </html>
