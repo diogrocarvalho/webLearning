@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <script type="application/javascript" src="angularjs.min.js"></script>
+</head>
+<body ng-app>
+   <div class="container">
+        <form name="form" action="">
+           <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" ng-model="nome" required name="nome">
+            </div>
+            <input type=submit ng-disabled="form.$invalid" class="btn btn-primary" name="submit">
+        </form>
+    </div>
+</body>
+</html>
