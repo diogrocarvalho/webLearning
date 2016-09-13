@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <style>
+        #mapid{
+            height: 500px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="mapid"></div>
+    <script>
+        var map = L.map('mapid').setView([-9.61335, -35.73976], 18);
+
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'sevottharte.1cl965ld',
+    accessToken: 'pk.eyJ1Ijoic2V2b3R0aGFydGUiLCJhIjoiY2l0MW8wNWMzMHI3bTJwa2hjMmJhNXcxbiJ9.gpNpsU5mmTRk3Pb3R65a8A'
+}).addTo(map);
+        
+
+    </script>
+</body>
+</html>
