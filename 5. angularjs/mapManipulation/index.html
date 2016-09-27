@@ -13,16 +13,23 @@
 
     <link rel="stylesheet" href="../../libs/leaflet-routing-machine-3.1.1/dist/leaflet-routing-machine.css" />
     <script src="../../libs/leaflet-routing-machine-3.1.1/dist/leaflet-routing-machine.min.js"></script>
-
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="../../libs/angularjs.min.js"></script>
+    <script src="app.js"></script>
+    <script src="map.controller.js"></script>
     <link rel="stylesheet" href="style.css" />
 
 </head>
 
-<body>
-    <div id="mapid"></div>
+<body ng-app="app">
+    <div class="container" ng-controller="mapCtrl">
+        <div id="mapid"></div>
+        <div class="button">
+            <button class="btn btn-danger" ng-click="saveRoute()"> OK </button>
+        </div>
+        <div class="console">{{console}}</div>
+    </div>
 
-    <script type="application/javascript" src="script.js"></script>
 
 </body>
 

@@ -1,3 +1,17 @@
 #mapid {
-    height: 500px;
+    margin-top: 50px;
+    height: 600px;
+    width: 100%;
+    z-index: 10;
+}
+
+.button {
+    position: fixed;
+    top: 300px;
+    z-index: 100;
+}
+
+.console {
+    height: 200px;
+    background-color: aliceblue;
 }
