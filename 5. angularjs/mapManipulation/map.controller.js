@@ -5,7 +5,7 @@ angular.module('app').controller('mapCtrl', function ($scope) {
     var geocodeService = L.esri.Geocoding.geocodeService();
     var startPoint = null;
     var endPoint = null;
-    var routing = null;
+    $scope.routing = null;
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -40,14 +40,17 @@ angular.module('app').controller('mapCtrl', function ($scope) {
                     layerGroup.addLayer(endPoint);
                     layerGroup.addTo(map);
 
-                    routing = L.Routing.control({
+                    $scope.routing = L.Routing.control({
                         waypoints: [
                             L.latLng(startPoint.getLatLng()),
                             L.latLng(endPoint.getLatLng())
                         ],
                         routeWhileDragging: true
                     }).addTo(map);
+                    //$scope.routing.hide();
                     layerGroup.clearLayers();
+
+
                 }
             });
         }
@@ -55,11 +58,27 @@ angular.module('app').controller('mapCtrl', function ($scope) {
 
 
 
+    $scope.routing.on('routesfound', function (e) {
+        console.log(e.routes);
+        console.log(e.routes[0].summary.totalDistance);
+        console.log(e.routes[0].summary.totalDistance / 1000 + "Km");
+        var a = e.routes[0].waypoints;
+        var b = a.map(function (item) {
+            return item.latLng;
+        });
+
+        a.forEach(function (item, index) {
+            console.log("Lat" + (index + 1) + " " + item.latLng.lat);
+            console.log("Lng" + (index + 1) + " " + item.latLng.lng);
+        });
+        $scope.console = toString(e.routes[0].summary.totalDistance);
+        console.log($scope.console);
+    });
 
 
 
     $scope.saveRoute = function () {
-        $scope.console = routing.getWaypoints();
+        //$scope.console = $scope.routing.getWaypoints();
 
     };
 });
