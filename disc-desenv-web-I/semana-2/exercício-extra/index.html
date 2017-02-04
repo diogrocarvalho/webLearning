@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <title>DESENVOLVIMENTO DE SOFTWARE PARA WEB </title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />    
+    </head>
+
+    <body>
+        <div>
+            <h1>Exercício Extra 2 - Calcular média</h1>
+            
+            <label for="studentName">Nome:</label>
+            <input type="text" id="studentName" name="studentName" value="" placeholder="Digite o nome do estudante">
+            <br><br>
+            <label for="labNote">Laboratório:</label>
+            <input id="labNote" type="number" placeholder="Insira a nota de laboratório">
+            <br><br>
+            <label for="examInterNote">Exame Intermediário</label>
+            <input id="examInterNote" type="number" placeholder="Insira a nota do exame intermediário">
+            <br><br>
+            <label for="examFinalNote">Exame Final</label>
+            <input id="exameFinalNote"type="number" placeholder="Insira a nota do exame final">
+            <br><br>
+            <button onclick="calculate()">Calcular média</button>
+        </div>
+        <br><br>
+
+        <span id="reportNotes"></span>
+
+        <script>
+            //Calcula a média e gera o relatório com o nome do aluno e as notas obtidas
+            function calculate(){
+                
+                //Obtenção e conversão dos dados inseridos quando necessário
+                var studentName = document.getElementById('studentName').value;
+                var labNote = document.getElementById('labNote').value;
+                var examInterNote = document.getElementById('examInterNote').value;
+                var examFinalNote = document.getElementById('exameFinalNote').value;
+
+                //Condição para verificar se todos os dados foram inseridos
+                if(labNote && examInterNote && examFinalNote && studentName){
+                    var media =  (0.2 * labNote) + (0.3*examInterNote) + (0.5*examFinalNote);
+                    var reportNotes = "Nome do Estudante: "+ studentName +
+                                      "<br><br> Nota de Laboratório: " + labNote +
+                                      "<br><br> Exame Intermediário: " + examInterNote +
+                                      "<br><br> Exame Final: " + examFinalNote+
+                                      "<br><br> Média Final: " + media.toFixed(2);                                      
+                    document.getElementById('reportNotes').innerHTML = reportNotes;                    
+                }else{
+                    //Mensagem de erro caso os dados não façam sentido
+                    document.getElementById('reportNotes').innerHTML = "Verifique os dados inseridos. Há inconsistências nos dados.";                    
+                }               
+                
+            }
+        </script>
+    </body>
+</html>
