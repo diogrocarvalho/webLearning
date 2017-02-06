@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+        <!-- 
+            Construa um botão que leia o nome do usuário e a  quantidade de produtos no consumidos no 
+            restaurante do Grego da UFAL e calcule a fatura final. Os produtos comercializados são os seguintes:
+            Prato self-service  R$ 14 reais o Kg
+            Suco R$ 3,00 copo
+            Sobremessa  R$ 2,00 o prato
+        -->
+
+        <h1>Calcular fatura</h1>
+        <br><br>
+        <label for="name">Nome:</label>
+        <input type="text" name="name" id="name" placeholder="Digite o nome">
+        <br><br>
+        <label for="quantity">Peso consumido</label>
+        <input id="quantityConsumed" type="number" name="quantityConsumed" >
+        <br><br>
+        <label for="juice">Copos de suco</label>
+        <input type="number" name="juice" id="juice" placeholder="Quantidade de suco consumida">
+        <br><br>
+        <label for="dessert">Sobremesa</label>
+        <input type="number" name="dessert" id="dessert" placeholder="Quantidade de sobremesa consumida">
+        <br><br>
+        <input type="button" name="generateBillButton" onclick="generateBill()">
+        <br><br>
+        <div id="answer"></div>
+
+        <script>
+            function generateBill(){
+                var name = document.getElementById('name').value,
+                    quantityConsumed = document.getElementById('quantityConsumed').value,
+                    juice = document.getElementById('juice').value,                    
+                    dessert = document.getElementById('dessert').value;
+
+                    if(name && quantityConsumed && juice && dessert){
+
+                    }else{
+                        
+                    }
+            }
+        </script>
+    
+    </body>
+</html>
