@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+        <!-- 
+        Construir uma página HTML chamada cálculo da área de um triângulo qualquer que solicita  os 
+        lados de um triângulo e calcula a sua área a partir da fórmula:
+
+        área = Sqrt(T*(T-S1)*(T-S2)*(T-S3))
+
+        Sqrt= raiz quadrada
+
+        S1, S2 e S3 são lados
+
+        T=(S1+S2+S3)/2
+        -->
+        <h1>Calcular a área de um triângulo qualquer</h1>
+        <br><br>
+        <label for="s1">Lado 1:</label>
+        <input type="number" id="s1" name="s1" value="" placeholder="Digite o lado 1">
+        <br><br>
+
+        <label for="s2">Lado 2:</label>
+        <input type="number" id="s2" name="s2" value="" placeholder="Digite o lado 2">
+        <br><br>
+        
+        <label for="s3">Lado 3:</label>
+        <input type="number" id="s3" name="s3" value="" placeholder="Digite o lado 3">
+        <br><br>
+
+        <input type="button" name="calculateButton" value="Calcular área" onclick="calculate()">
+        <br><br>
+        <div id="answer"></div>
+
+        <script>
+            function calculate(){
+                var s1 = parseFloat(document.getElementById('s1').value),
+                    s2 = parseFloat(document.getElementById('s2').value),
+                    s3 = parseFloat(document.getElementById('s3').value);
+
+                if(s1 && s2 && s3){
+                    var T = (s1+s2+s3)/2;
+                    console.log('t',s1, s2, s3, T);
+                    var area = Math.sqrt(T*(T-s1)*(T-s2)*(T-s3));
+                    document.getElementById('answer').innerHTML = "Área = " + area.toFixed(2)+"UM (Unidade de medida)";
+                }else{
+                    document.getElementById('answer').innerHTML = "Verifique se digitou corretamente todos os lados do triângulo. ";
+                }
+            }
+        </script>
+    </body>
+</html>

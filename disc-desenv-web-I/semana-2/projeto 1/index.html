@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+        <!-- 
+            Construir uma página HTML que leia em um campo um valor em dólar ou euros, 
+            digitado pelo usuário" e converta esse valor para reais e 
+            vice-versa(conversão 1 dólar=3,15 reais, 1 euro=3,38 reais). 
+            Crie um botão chamado "realiza conversão " que realiza a leitura do campo e converte as moedas.
+        -->
+
+        <h1>Converter moeda</h1>        
+        <br><br>
+        <label for="currencyToConvert">Valor a ser convertido</label>
+        <input type="number" name="currencyToConvert" id="currencyToConvert" value=""
+             placeholder="Digite o valor">
+        <br><br>
+        <input type="button" name="convertButton" value="Realizar conversão" onclick="convert()">
+        <br><br>
+        <div id="answer"></div>
+
+        <script>
+            function convert(){
+                var euro = 3.38, dolar = 3.15;
+                var currency = parseFloat(document.getElementById('currencyToConvert').value);
+
+                if(currency > 0){
+                    var convertedToEuro = (currency*euro).toFixed(2);
+                    var convertedToDolar = (currency*dolar).toFixed(2);                
+                    
+                    var answer = "USD "+currency + " = BRL " + convertedToDolar +
+                                " <br><br>" +
+                                "EUR "+currency + " = BRL " + convertedToEuro;
+
+                    document.getElementById('answer').innerHTML = answer;
+                }else{
+                    document.getElementById('answer').innerHTML = "Verifique se o valor digitado é válido."
+                }
+            }
+        </script>
+    </body>
+</html>
