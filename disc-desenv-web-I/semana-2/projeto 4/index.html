@@ -31,8 +31,7 @@
 
         Notafinal= (Nota1+Nota2)/2
     -->
-        <h1>Calcular média em Desenvolvimento de Software I</h1>
-        <br><br>
+        <h1>Calcular média em Desenvolvimento de Software I</h1>       
         
         <h4>Semana 1</h4>        
 
@@ -66,9 +65,31 @@
         <input type="number" name="finalProject" id="finalProject" value="0">
         <br><br>
         <input type="button" name="calculateAverageNoteButton" value="Calcular média" onclick="calculateAverage()">
+
+        <br><br>
+        <div id="answer"></div>
         <script>
             function calculateAverage(){
-                
+                //Pega os valores e converte para float
+                var glossary1 = parseFloat(document.getElementById('glossary1').value),
+                    glossary2 = parseFloat(document.getElementById('glossary2').value),
+                    average1 = parseFloat(document.getElementById('average1').value),
+                    average2 = parseFloat(document.getElementById('average2').value),
+                    average3 = parseFloat(document.getElementById('average3').value),
+                    average4 = parseFloat(document.getElementById('average4').value),
+                    finalProject = parseFloat(document.getElementById('finalProject').value);
+                //calcula as notas da semana
+                var week1 = (0.2*glossary1) + (0.8 *average1),
+                    week2 = (0.2*glossary2) + (0.8 *average2),
+                    week3 = average3,
+                    week4 = average4;
+                //calcula a ab1 e ab2
+                var note1 =  (week1 + week2 + week3 + week4)/4, 
+                    note2 = parseFloat(document.getElementById('finalProject').value);
+                //calcula a nota final
+                var finalNote = (note1 + note2)/2;
+                //coloca o a nota final na div de id 'answer'
+                document.getElementById('answer').innerHTML = "Nota final: " +finalNote.toFixed(2);
             }
         </script>
 
