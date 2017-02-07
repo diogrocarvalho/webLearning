@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+        <!-- 
+
+             Projeto 1
+
+            Construir uma página HTML que leia os três coeficientes de uma equação do segundo grau e calcule:
+
+            - O valor de Delta (como na videoaula da semana);
+
+            - Verificar se a equação tem valores reais;
+
+            - Em caso positivo, calcule e mostre as raízes .
+
+            Entrada: coeficientes a,b e c
+
+            saída exemplos:
+
+            os coeficientes são 
+
+            a=1, b= 3, c=2 Delta= 1
+
+            Sim, tem raízes reais
+
+            raiz1=Colocar o valor
+
+            raiz2=Color o valor
+
+            Coloque um breve histórico e, se possível, com imagens do criador das equaçoes do segundo grau.
+        -->
+        <h1>Calcular raízes da equação de segundo grau</h1>
+
+        <label for="">Equação:</label>
+        <input type="number" id="coefficientA" name="coefficientA" value="">x²
+        <input type="number" id="coefficientB" name="coefficientB" value="">x
+        <input type="number" id="coefficientC" name="coefficientC" value="">
+        <br><br>
+        <input type="button" name="calculteEquationButton" value="Calcular raízes" onclick="calculteEquation()">
+        <br><br>
+        <div id="answer"></div>
+    
+        <script>
+            function calculteEquation(){
+                
+                var a = parseFloat(document.getElementById('coefficientA').value),
+                    b = parseFloat(document.getElementById('coefficientB').value),
+                    c = parseFloat(document.getElementById('coefficientC').value),
+                    delta = Math.pow(b,2) -(4*a*c),
+                    output = "<h4>Saída</h4>Os coeficientes são: a = "+a+", b = "+b+", c = "
+                             +c+" e delta = "+delta+"<br><br>";
+                
+                if(!isNaN(a) && !isNaN(b) && !isNaN(c)){
+                    if(delta>=0){
+                        var sqrtDelta = Math.sqrt(delta),
+                            x1 = (((-1*b)+sqrtDelta)/(2*a)).toFixed(2);
+                        if(delta>0){
+                            var x2 = (((-1*b)-sqrtDelta)/(2*a)).toFixed(2);                
+                            output+="A equação possui duas raízes reais distintas:<br><br>"+"raiz1 = "+x1+" raiz2 = "+x2;
+                        }else{
+                            output+="A equação possui duas raízes reais iguais:<br><br>"+"raiz = "+x1;
+                        }
+                    }else{
+                        output+="A equação não possui raíz real.";                    
+                    }
+                    document.getElementById('answer').innerHTML=output;
+                }else{
+                    document.getElementById('answer').innerHTML="Não foi possível calcular a equação. Verifique os coeficientes informados.";
+                }
+            }
+        </script>
+    </body>
+</html>
