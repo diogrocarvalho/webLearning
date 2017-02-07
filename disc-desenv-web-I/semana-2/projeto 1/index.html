@@ -29,12 +29,18 @@
                 var currency = parseFloat(document.getElementById('currencyToConvert').value);
 
                 if(currency > 0){
-                    var convertedToEuro = (currency*euro).toFixed(2);
-                    var convertedToDolar = (currency*dolar).toFixed(2);                
+                    var convertedToEuro = (currency*euro).toFixed(2), 
+                        convertedRealToDolar = (currency/dolar).toFixed(2),
+                        convertedRealToEuro = (currency/euro).toFixed(2),
+                        convertedToDolar = (currency*dolar).toFixed(2);                
                     
-                    var answer = "USD "+currency + " = BRL " + convertedToDolar +
+                    var answer = "USD "+ currency + " = BRL " + convertedToDolar +
                                 " <br><br>" +
-                                "EUR "+currency + " = BRL " + convertedToEuro;
+                                "EUR "+ currency + " = BRL " + convertedToEuro+
+                                " <br><br>" +
+                                "BRL "+ currency + " = USD " + convertedRealToDolar+
+                                " <br><br>" +
+                                "BRL "+ currency + " = EUR " + convertedRealToEuro;
 
                     document.getElementById('answer').innerHTML = answer;
                 }else{
