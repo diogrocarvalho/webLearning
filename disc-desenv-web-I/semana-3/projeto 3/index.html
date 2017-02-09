@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Desenvolvimento de Software para WEB I</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+        <!-- 
+            Projeto 3 (Adaptado semana anterior)
+
+ 
+
+Construa um botão que leia o nome do usuário, idade e a  quantidade de produtos no consumidos no restaurante do Grego da UFAL e calcule a fatura final. Os produtos comercializados são os seguintes:
+Prato self-service  R$ 14 reais o Kg
+Suco R$ 3,00 copo
+Sobremessa  R$ 2,00 o prato
+
+Aplicar os seguintes descontos:
+
+Idade entre 40 e 50 anos tem 5% de abatimento.
+
+idade maior que 50 e menor que 60 anos tem 10% de abatimento.
+
+Acima de 60 tem 15% de abatimento.
+
+Um exemplo de saída:
+
+"Fábio Paraguaçu"
+
+consumiu:
+
+500 gramas no self-service R$ 7,00 reais
+
+2 sucos R$ 6,00reais
+
+2 pratos de sobremesa R$ 4,00 reais
+
+Total 17,00 reais
+
+42 anos 
+
+tem 5% 
+
+17- 0,85= 16,15 reais
+        -->
+
+        <h1>Calcular conta</h1>
+        <br><br>
+        <label for="name">Nome:</label>
+        <input type="text" name="name" id="name" placeholder="Digite o nome">
+        <br><br>
+        <label for="age">Idade:</label>
+        <input type="number" name="age" id="age" value="0">
+        <br><br>
+        <label for="quantity">Peso consumido (gramas)</label>
+        <input id="quantityConsumed" type="number" value="0" name="quantityConsumed" >
+        <br><br>
+        <label for="juice">Copos de suco</label>
+        <input type="number" name="juice" id="juice" value="0" placeholder="Quantidade de suco consumida">
+        <br><br>
+        <label for="dessert">Sobremesa</label>
+        <input type="number" name="dessert" id="dessert" value="0" placeholder="Quantidade de sobremesa consumida">
+        <br><br>
+        <input type="button" name="generateBillButton" value="Calcular conta" onclick="generateBill()">
+        <br><br>
+        <div id="answer"></div>
+
+        <script>
+            function generateBill(){
+                var selfServicePrice = 14.00,
+                    juicePrice = 3.00,
+                    dessertPrice = 2.00;
+
+                var name = document.getElementById('name').value,
+                    quantityConsumed = parseFloat(document.getElementById('quantityConsumed').value),
+                    juice = parseFloat(document.getElementById('juice').value),
+                    age = parseFloat(document.getElementById('age').value),
+                    dessert = parseFloat(document.getElementById('dessert').value);                    
+
+                if(name && quantityConsumed >=0 && juice >=0 && dessert >=0){
+                    var totalSelfService = (quantityConsumed/1000)*14.00,
+                        totalJuice = juice * juicePrice,
+                        totalDessert = dessert * dessertPrice;
+
+                    var totalBill = (totalSelfService + totalJuice + totalDessert).toFixed(2),
+                        discount = 0, 
+                        hasDiscount = false,
+                        totalDiscount = 0;
+                    // criar a mensagem de retorno
+                    var answer = name+"<br><br> consumiu:<br><br>"+ 
+                        quantityConsumed +" gramas no self-service R$" + totalSelfService.toFixed(2) +" reais<br><br>"
+                        + juice + " sucos R$ "+ totalJuice +" reais<br><br>"
+                        + dessert +" pratos de sobremesa R$ "+totalDessert +
+                        " reais<br><br> Total "+totalBill+" reais <br><br>";
+
+                   //Aplicar desconto
+                    if(age>= 40 && age <=50){ //5%
+                        discount = totalBill*0.05;
+                        hasDiscount = true;
+                        totalDiscount = "5%";
+                    }else if(age>50 && age<60){//10%
+                        discount = totalBill*0.1;
+                        hasDiscount = true;
+                        totalDiscount = "10%";
+                    }else if(age>=60){//15%
+                        discount = totalBill*0.15;
+                        hasDiscount = true;
+                        totalDiscount = "15%";
+                    }
+                    
+                    // verifica se tem desconto e finaliza a mensagem de retorno.
+                    if(hasDiscount){
+                        discount = discount.toFixed(2);
+                        answer += age+" anos" + "<br><br>tem " +totalDiscount +" de abatimento<br><br>"+
+                                "R$ "+totalBill +" - R$ "+ discount + " = " 
+                                + (totalBill-discount).toFixed(2) + " reais";
+                    }else{
+                        answer += "Não possui desconto por idade. Aguarde nossas futuras promoções!";
+                    }
+                    
+                    document.getElementById('answer').innerHTML = answer;
+                }else{
+                    document.getElementById('answer').innerHTML = "Não foi possível gerar a conta!!! <br><br>Verifique os dados inseridos. Não é permitido valores nulos ou inferiores a zero.";
+                }
+            }
+        </script>
+    
+    </body>
+</html>

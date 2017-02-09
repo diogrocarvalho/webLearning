@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Desenvolvimento de Software para WEB I</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+    <!-- 
+        Construa uma página HTML que  calcule sua média em Desenvolvimento de Software para WEB I. A nota deverá ser composta pelos seguintes itens:
+
+        Semana 1
+
+        20% *Glossário1+ 80% * MediaTarefas1
+
+        Semana 2
+
+        20% *Glossário2+ 80% * MediaTarefas2
+
+        Semana 3
+
+        100%* MediaTarefas3
+
+        Semana 4
+
+        100%*MediaTarefas4
+
+        Nota1= (Semana1+Semana2+Semana3+Semana4)/4
+
+        Nota2= Projeto final
+
+        Notafinal= (Nota1+Nota2)/2
+    -->
+        <h1>Calcular média em Desenvolvimento de Software I</h1>       
+        
+        <h4>Semana 1</h4>        
+
+        <label for="glossary1">Glossário 1</label>
+        <input type="number" name="glossary1" id="glossary1" value="0">
+        <br><br>
+        <label for="average1">Média semana 1</label>
+        <input type="number" name="average1" id="average1" value="0">
+
+        <h4>Semana 2</h4>        
+
+        <label for="glossary2">Glossário 2</label>
+        <input type="number" name="glossary2" id="glossary2" value="0">
+        <br><br>
+
+        <label for="average2">Média semana 2</label>
+        <input type="number" name="average2" id="average2" value="0">
+
+        <h4>Semana 3</h4>
+        
+        <label for="average3">Média semana 3</label>
+        <input type="number" name="average3" id="average3" value="0">
+
+        <h4>Semana 4</h4>
+        
+        <label for="average4">Média semana 4</label>
+        <input type="number" name="average4" id="average4" value="0">
+
+        <h4>Projeto final</h4>
+        <label for="finalProject">Projeto final</label>
+        <input type="number" name="finalProject" id="finalProject" value="0">
+        <br><br>
+        <input type="button" name="calculateAverageNoteButton" value="Calcular média" onclick="calculateAverage()">
+
+        <br><br>
+        <div id="answer"></div>
+        <script>
+            function calculateAverage(){
+                //Pega os valores e converte para float
+                var glossary1 = parseFloat(document.getElementById('glossary1').value),
+                    glossary2 = parseFloat(document.getElementById('glossary2').value),
+                    average1 = parseFloat(document.getElementById('average1').value),
+                    average2 = parseFloat(document.getElementById('average2').value),
+                    average3 = parseFloat(document.getElementById('average3').value),
+                    average4 = parseFloat(document.getElementById('average4').value),
+                    finalProject = parseFloat(document.getElementById('finalProject').value);
+                //calcula as notas da semana
+                var week1 = (0.2*glossary1) + (0.8 *average1),
+                    week2 = (0.2*glossary2) + (0.8 *average2),
+                    week3 = average3,
+                    week4 = average4;
+                //calcula a ab1 e ab2
+                var note1 =  (week1 + week2 + week3 + week4)/4, 
+                    note2 = parseFloat(document.getElementById('finalProject').value);
+                //calcula a nota final
+                var finalNote = (note1 + note2)/2;
+                //coloca o a nota final na div de id 'answer'
+
+                /*
+                incluir a seguinte análise:
+
+                Se ele foi aprovado por média ou não;
+
+                - Se necessitará de reavaliação;
+
+                - Se necessitará de final e a nota mínima para aprovação;
+                O relatório deve conter o nome, número de matrícula e o período do aluno
+                */
+                document.getElementById('answer').innerHTML = "Nota final: " +finalNote.toFixed(2);
+                if(finalNote < 7){
+
+                }else{
+                    console.log("Aprovado por média");
+                }
+                
+            }
+        </script>
+
+    </body>
+</html>

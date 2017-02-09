@@ -10,20 +10,58 @@
 
         <label for="side1">Lado 1</label>
         <input type="number" id="side1" name="side1" value="0">
+        <br><br>
         <label for="side2">Lado 2</label>
         <input type="number" id="side2" name="side2" value="0">
+        <br><br>
         <label for="side3">Lado 3</label>
         <input type="number" id="side3" name="side3" value="0">
-    
-        <input type="button" onclick="verifyTriangleType()" name="verifyTriangleTypeButton" value="">
+        <br><br>    
+        <input type="button" onclick="verifyTriangleType()" name="verifyTriangleTypeButton" value="Verificar tipo">
         <div id="answer"></div>
         
         <script>
-            var side1 = parseFloat(document.getElementById('side1').value),
-                side2 = parseFloat(document.getElementById('side2').value),
-                side3 = parseFloat(document.getElementById('side3').value);
+        /*
+            Preparar uma página WEB que leia os três lados de um triângulo (Lado1, Lado2
 
-                
+            e Lado3) e determine o tipo do triângulo. 
+            
+            Seja Lado1 o maior lado. Então:
+
+           ok Se Lado1>= Lado2+Lado3 nenhum triângulo pode ser formado
+
+            Se (Lado1*Lado1)=(Lado2*Lado2)+(Lado3*Lado3). o triângulo é retângulo
+
+            Se (Lado1*Lado1)>(Lado2*Lado2)+(Lado3*Lado3).o triângulo é obtusângulo
+
+            Se (Lado1*Lado1)<(Lado2*Lado2)+(Lado3*Lado3).o triângulo é acutângulo
+        */
+        function verifyTriangleType(){
+                var side1 = parseFloat(document.getElementById('side1').value),
+                    side2 = parseFloat(document.getElementById('side2').value),
+                    side3 = parseFloat(document.getElementById('side3').value),
+                    answer = "";
+
+                    if(side1 >side2 && side1>side3){                        
+                        var conditionS2S3 = Math.pow(side2,2)+ Math.pow(side3,2),
+                            conditionS1 = Math.pow(side1,2);
+
+                        if(side1>=(side2+side3)){                            
+                            answer = "Nenhum triângulo pode ser formado.";
+                        }else if(conditionS1 == conditionS2S3){
+                            answer = "O triângulo é retângulo.";
+                        }else if(conditionS1 > conditionS2S3){
+                            answer = "O triângulo é obtusângulo.";
+                        }else if(conditionS1 < conditionS2S3){
+                            answer = "O triângulo é acutângulo.";
+                        }
+                    }else{
+                        answer = 'Não foi possível determinar o tipo do triângulo.<br><br>'+
+                                'O lado1 não é maior que os outros dois lados.';
+                    }
+
+            document.getElementById('answer').innerHTML = '<br><br>'+ answer;
+        }
         </script>
     </body>
 </html>
