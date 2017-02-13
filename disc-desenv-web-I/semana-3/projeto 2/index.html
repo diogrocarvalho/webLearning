@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title></title>
+         <title>Desenvolvimento de Software para WEB I</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">        
     </head>
@@ -21,21 +21,6 @@
         <div id="answer"></div>
         
         <script>
-        /*
-            Preparar uma página WEB que leia os três lados de um triângulo (Lado1, Lado2
-
-            e Lado3) e determine o tipo do triângulo. 
-            
-            Seja Lado1 o maior lado. Então:
-
-           ok Se Lado1>= Lado2+Lado3 nenhum triângulo pode ser formado
-
-            Se (Lado1*Lado1)=(Lado2*Lado2)+(Lado3*Lado3). o triângulo é retângulo
-
-            Se (Lado1*Lado1)>(Lado2*Lado2)+(Lado3*Lado3).o triângulo é obtusângulo
-
-            Se (Lado1*Lado1)<(Lado2*Lado2)+(Lado3*Lado3).o triângulo é acutângulo
-        */
         function verifyTriangleType(){
                 var side1 = parseFloat(document.getElementById('side1').value),
                     side2 = parseFloat(document.getElementById('side2').value),
