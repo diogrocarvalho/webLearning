@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Calcular média em Desenvolvimento de Software I</h1>       
-        
+        <!-- Optei por deixar a inclusão dos dados do aluno em aberto, de forma a ser mais flexível. -->
         <label for="name">Nome do aluno:</label>
         <input type="text" name="name" id="name">
         <br><br>
@@ -81,8 +81,8 @@
                                 + "<br><br>Período: "+studentPeriod;
                 finalMessage += "<br><br>AB1: "+note1+"<br><br>AB2: "+note2+"<br><br>Nota final (Sem reavaliações): " +finalNote.toFixed(2);                
 
-                if(finalNote < 7 && finalNote >=5){
-                    if(note1 < note2 || note1 === note2){                        
+                if(finalNote < 7 && finalNote >=5){//verifica se o aluno não foi aprovado por média
+                    if(note1 < note2 || note1 === note2){//determina qual nota será reavaliada, se ab1 ou ab2
                         finalMessage+= "<br><br> O aluno precisou reavaliar a AB1";
                         do{
                             var reav = parseFloat(prompt("O aluno não alcançou a média para aprovação. \nInsira a nota da reavaliação da ab1", "0"));
@@ -99,22 +99,27 @@
                             finalMessage+= "<br><br> Nota da reavaliação da AB2: " +reav;
                         }while(reav === null || reav==="");
                     }
-                    if(finalNote < 7 && finalNote >= 5){
+                    if(finalNote < 7 && finalNote >= 5){ //determina se, após a reavaliação o aluno tem direito a fazer a prova final
+                        var neededToAprove = (5.5 - (0.6*finalNote))/0.4;
                         do{
-                            var final = parseFloat(prompt("O aluno não alcançou a média para aprovação. \n Insira a nota da prova final", "0"));                            
+                            var final = parseFloat(prompt("O aluno não alcançou a média para aprovação e precisa de "+neededToAprove.toFixed(2)+
+                                    " para a aprovação.\nMédia atual:"+finalNote+"\nInsira a nota da prova final", "0"));                            
                         }while(final === null || final==="");
 
-                        var finalWithFinalAverage = ((0.6*finalNote) + (0.4*final)).toFixed(2);
-                        if(finalWithFinalAverage >= 5.5){                            
+                        var finalWithFinalAverage = ((0.6*finalNote) + (0.4*final)).toFixed(2);// calcula a média final com a nota final
+                        if(finalWithFinalAverage >= 5.5){// verifica se o aluno ficou com a média final igual ou maior a 5.5 (nota necessária para a aprovação)
                             finalMessage+= "<br><br> O aluno foi aprovado com a nota da prova final. <br><br>Nota final: "+finalWithFinalAverage;
                         }else{                            
                             finalMessage+= "<br><br> O aluno não foi aprovado com a nota da prova final.<br><br> Nota final: "+finalWithFinalAverage;
                         }
-                    }else{
+                    }else if(finalNote >= 7){// valida se o aluno conseguiu a nota necessária para a aprovação após a realização da reavaliação
                         finalMessage+= "<br><br> O aluno foi aprovado com a nota da reavaliação e não precisa fazer a prova final. <br><br>Nota reavaliação:"+
                                     reav+"<br><br> Nota final: "+finalNote;
+                    }else{
+                        finalMessage += "<br><br>O aluno não foi aprovado e não tem direito a fazer a prova final. Pois sua média é inferior a 5."
+                                +"<br><br> Nota final: "+finalNote;
                     }
-                }else if(finalNote < 5){                    
+                }else if(finalNote < 5){//determina se o aluno não tem direiro a fazer a prova final a partir da média.
                     finalMessage+= "<br><br> O aluno não tem direito a fazer a prova final pois teve média inferior a 5";
                 }else{                    
                     finalMessage+= "<br><br> O aluno foi aprovado por média";
