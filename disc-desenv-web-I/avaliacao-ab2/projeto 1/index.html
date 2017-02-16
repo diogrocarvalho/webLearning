@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Desenvolvimento de Software para WEB I</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+    </head>
+    <body>
+        <h1>Tabuada</h1>
+        <button onclick="generateResults()" name="generateResultsBtn"> Gerar resultados</button>
+        <div id="answer"></div>
+
+        <script>
+            /*
+                Algoritmo
+                    Gerar 20 alunos com nomes e notas pseudoaleatórias
+                    Iterar sobre esses alunos e verificar suas notas
+                        se a nota for maior ou igual a 9 mostrar mensagem "Bravo você é quase um mestre em tabuada de multiplicar!"
+                        se nota form entre 7 e 9 mostrar mensagem "O teu desempenho está muito bom"
+                        se a nota for inferior a 7 mostrar mensagem "Seria muito proveitoso jogar novamente conosco!"
+                    Formatar o relatório e mostrar no browser
+            */
+            function generateResults(){                
+                var students = [],
+                    nameGen = new randomNamesGeneration()
+                    answer = br = "<br><br>", average = 0;
+                
+                //gera os alunos e suas respectivas notas
+                for(var i = 0; i< 20 ; i++){
+                    var student = {};
+                    student.name = nameGen.CreateNewName() + ('son').toLocaleUpperCase();
+                    student.sortedTables = generateTableRows();
+                    student.rightHits = Math.floor(Math.random()*11);
+                    students.push(student);
+                }
+
+                //gera o resultado para "imprimir"                
+                students.forEach(function(student, i){
+                    answer+= "------------- Aluno #" + (i+1) + " -------------" +br;
+                    answer+= "Nome: "+student.name+br+
+                             "Nota: "+student.rightHits+br;
+                    average += student.rightHits;
+
+                    if(student.rightHits >= 9 ){
+                        answer+= "Bravo você é quase um mestre em tabuada de multiplicar!";
+                    }else if(student.rightHits >= 7 && student.rightHits < 9){
+                        answer+= "O teu desempenho está muito bom";
+                    }else{
+                        answer+="Seria muito proveitoso jogar novamente conosco!";
+                    }
+
+                    answer+=br;
+                });
+
+                answer+="<hr>"+br+"Média dos 20 alunos: "+(average/20).toFixed(2);
+
+                document.getElementById('answer').innerHTML = answer;
+            }
+
+            function generateTableRows(){
+                var rows = [];
+
+                for(var i=0 ; i < 10 ; i++){
+                    var row = {
+                                firstNumber: Math.floor(Math.random() * 10) + 1,
+                                secondNumber: Math.floor(Math.random() * 10) + 1
+                               };                                                
+                    rows.push(row);
+                }                
+                return rows;
+            }
+
+            
+            function randomNamesGeneration(){
+                var firstNameSyllables=[];
+                this.Start = function(){
+                    firstNameSyllables = new Array();
+                    firstNameSyllables.push("val");
+                    firstNameSyllables.push("dis");
+                    firstNameSyllables.push("shi");
+                    firstNameSyllables.push("zag");
+                    firstNameSyllables.push("ander");
+                    firstNameSyllables.push("rash");
+                    firstNameSyllables.push("jos");
+                    firstNameSyllables.push("fer");
+                    firstNameSyllables.push("nan");
+                    firstNameSyllables.push("clei");
+                }
+
+                this.CreateNewName = function(){
+                    //cria um primeiro nome com 2-3 sílabas
+                    var firstName = "";
+                    var numberOfSyllablesInFirstName = Math.floor(Math.random() * 3) + 1;  
+                    for (var i = 0; i < numberOfSyllablesInFirstName; i++){                                 
+                        firstName += firstNameSyllables[Math.floor(Math.random() * firstNameSyllables.length-1) + 1];                        
+                    }                    
+                    return firstName.toUpperCase();
+                }
+                this.Start();
+            }
+
+        </script>
+    
+    </body>
+</html>

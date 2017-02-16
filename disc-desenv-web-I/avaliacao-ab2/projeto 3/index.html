@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+        <h1>Gerar relatórios de salário líquido dos funcionários</h1>
+         <p>Caso nenhum número seja informado ou o valor seja inválido, será gerado um relatório contendo 100 funcionários.</p>
+         <label for="employeesQnt">Quantidade de funcionários</label>
+         <input type="number" name="employeesQnt" id="employeesQnt" value="0" placeholder="Digite a quantidade de funcionários">
+         <input type="button" name="generateReportBtn" onclick="generateReport()" value="Gerar relatório">         
+         <br><br>
+         <div id="answer"></div>
+
+         <script>
+            /*             
+                
+                Gerar os funcionários aleatóriamente a partir de um número dado. 
+                Se o número não for fornecido ou for inválido são gerados 100 funcionários. 
+                O salário é gerado entre 960 e 15000 reais.
+                A média dos salários líquidos estão no final da página.
+
+                Algoritmo
+                    ler a quantidade fornecida
+                        se a quantidade fornecida não for um número válido ou 0 determina que a employeesQnt é 100
+                    gerar uma quantidade de funcionários igual a employeesQnt
+                    iterar em todos os funcionário calculando os descontos e, consequentemente, o salário líquido
+                    enquanto não chegar ao último funcionário, continuar a iteração
+                    ao chegar ao fim da iteração, calcular a média de salários líquidos dos funcionários
+                    mostrar o resultado na tela
+
+            */
+
+
+            function generateReport(){
+                var employees = [],                
+                nameGen = new randomNamesGeneration(), //cria o objeto que vai gerar os nomes pseudo aleatoriamente
+                answer = br = "<br><br>",
+                average = 0,
+                employeesQnt = parseInt(document.getElementById('employeesQnt').value);
+
+                if(!employeesQnt || employeesQnt < 0){
+                    employeesQnt = 100;
+                }
+                
+                //gera os funcionários
+                for(var i = 0; i < employeesQnt ; i++){
+                    var employee = {}, 
+                        ir = 0.275, //imposto de renda %
+                        prev = 0.11, //previdencia %
+                        liquidSalary = 0;                   
+                    employee.name = nameGen.CreateNewName() + ('son').toLocaleUpperCase();
+                    employee.siape = getRandomArbitrary(1950,1999) + getRandomArbitrary(1,10)+
+                                     getRandomArbitrary(1000,9999);
+                    employee.salary = getRandomArbitrary(960, 15000);                    
+                    employee.discountIR = (employee.salary*ir);
+                    employee.discountPrev = (employee.salary*prev)
+                    employee.liquidSalary = (employee.salary - (employee.discountIR + employee.discountPrev)).toFixed(2);
+                    average += parseFloat(employee.liquidSalary);                    
+                    employees.push(employee);
+                }
+
+                 /*
+                    O botão deve calcular e imprimir sobre o corpo do documento: nome, salário bruto
+                    desconto de previdência e imposto. O documento deve ainda conter a média dos 100 salários (liquido).
+                */
+                // gera os dados para a "impressão"                
+                employees.forEach(function(employee, i){                    
+                    answer += "------------------ Funcionário "+ (i +1) + " ------------------"+br
+                    answer += "Nome: " + employee.name + br
+                            + "Matrícula SIAPE: " + employee.siape + br
+                            + "Disconto IR: R$ " + employee.discountIR.toFixed(2) + br
+                            + "Disconto previdência: R$ " + employee.discountPrev.toFixed(2)+br
+                            + "Salário bruto: R$ " + employee.salary.toFixed(2) + br
+                            + "Salário líquido: R$ " + employee.liquidSalary + br;
+                });
+                answer+="<hr>"+br+"Média de salários líquidos: R$ " + (average/employeesQnt).toFixed(2);
+                
+                //insere os dados na div answer para serem exibidos na tela
+                document.getElementById('answer').innerHTML = answer;
+                
+            }
+
+            //Gera números aleatórios em um intervalo dado
+            function getRandomArbitrary(min, max) {
+                 min = Math.ceil(min);
+                 max = Math.floor(max);
+                 return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            //Gera nomes aleatoriamente
+            function randomNamesGeneration(){
+                var firstNameSyllables=[];
+                
+                this.Start = function(){
+                    firstNameSyllables = new Array();
+                    firstNameSyllables.push("val");
+                    firstNameSyllables.push("dis");
+                    firstNameSyllables.push("shi");
+                    firstNameSyllables.push("zag");
+                    firstNameSyllables.push("ander");
+                    firstNameSyllables.push("rash");
+                    firstNameSyllables.push("jos");
+                    firstNameSyllables.push("fer");
+                    firstNameSyllables.push("nan");
+                    firstNameSyllables.push("clei");
+                }
+
+                this.CreateNewName = function(){
+                    //cria um primeiro nome com 2-3 sílabas
+                    var firstName = "";
+                    var numberOfSyllablesInFirstName = Math.floor(Math.random() * 3) + 1;  
+                    for (var i = 0; i < numberOfSyllablesInFirstName; i++){                                 
+                        firstName += firstNameSyllables[Math.floor(Math.random() * firstNameSyllables.length-1) + 1];                        
+                    }                    
+                    return firstName.toUpperCase();
+                }
+                this.Start();
+            }
+
+         </script>
+    </body>
+</html>

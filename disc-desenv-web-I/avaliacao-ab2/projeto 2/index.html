@@ -7,18 +7,37 @@
     </head>
     <body>
 
-        <h1>Soma de números primos</h1>
+        <h1>Soma de números ímpares</h1>
 
         <!--
             Construir um botão  que imprima a soma dos 10 primeiros números ímpares. 
             O programa deve imprimir o ímpar achado e a soma parcial até que a iteração chegue ao fim.
          -->
-         <input type="button" name="sumPrimeBtn" onclick="calculateOdds()" value="Calcular ímpares">
-         <input type="button" name="sumPrimeBtn" onclick="calculatePrimes()" value="Calcular primos ímpares">
+         <input type="button" name="sumPrimeBtn" onclick="calculateOdds()" value="Calcular ímpares">         
          <br><br>
          <div id="answer"></div>
 
          <script>
+
+            /*
+                O programa realiza um loop até que sejam encontrados 10 números primos.
+                Número atual começa do 0 e vai somando 1 no final do laço.
+                Utilizo um do...while para fazer as iterações.
+                A média é calculada apenas ao sair da iteração.
+
+                Algoritimo: 
+
+                Verificar se número atual é primo
+                    se for soma a partialSum e adiciona +1 a oddsFoundQnt
+                Adicionar mais um ao número atual
+                Verificar se o oddsFoundQnt é igual a 10
+                    se for encerra a iteração e calcula a média
+                    se não for retorna para o inicio da iteração
+                Mostrar o resultado na tela
+                
+            */
+
+            // verifica se é primo
             function isPrime(value) {
                 for(var i = 2; i < value; i++) {
                     if(value % i === 0) {
@@ -27,25 +46,32 @@
                 }
                 return value > 1;
             }
-            function isOdd(value){
+            
+            // verifica se é ímpar
+            function isOdd(value){ 
                 return (value%2)!==0;
             }
+            
+            //realiza as operações pedidas no problema
             function calculateOdds(){
                 var oddsFoundQnt = 0, 
                     currentNumber = 0, 
-                    partialSum = 0;
+                    partialSum = 0, 
+                    answer = "", br = "<br><br>";
+                //laço responsável por somar 1 ao numero anterior e verificar se ele é ímpar
                 do{
-                    if(isOdd(currentNumber)){                        
+                    if(isOdd(currentNumber)){
                         oddsFoundQnt++;
                         partialSum += currentNumber;
-                        console.log("Ímpar encontrado: " + currentNumber);
-                        console.log("Soma parcial: "+ partialSum);
+                        answer += "Ímpar encontrado: " + currentNumber + br+
+                                  "Soma parcial: "+ partialSum + br;                        
                     }
                     currentNumber++;
                 }while(oddsFoundQnt < 10);
 
-                console.log("Soma total: ", partialSum);
-                console.log("Total de ímpares encontrados: ", oddsFoundQnt);
+                answer += "<hr> "+br+"Soma total: " + partialSum+br
+                       +"Total de ímpares encontrados: "+ oddsFoundQnt+br;
+                       document.getElementById('answer').innerHTML = answer;
             }
 
             function calculatePrimes(){
