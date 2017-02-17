@@ -7,9 +7,13 @@
     </head>
     <body>
         <h1>Gerar relatórios de salário líquido dos funcionários</h1>
-         <p>Caso nenhum número seja informado ou o valor seja inválido, será gerado um relatório contendo 100 funcionários.</p>
+         <p>
+             <strong>Caso nenhum número seja informado ou o valor seja inválido, 
+                 será gerado um relatório contendo 100 funcionários.</strong>
+         </p>
          <label for="employeesQnt">Quantidade de funcionários</label>
-         <input type="number" name="employeesQnt" id="employeesQnt" value="0" placeholder="Digite a quantidade de funcionários">
+         <input type="number" name="employeesQnt" id="employeesQnt" value="0" 
+                placeholder="Digite a quantidade de funcionários">
          <input type="button" name="generateReportBtn" onclick="generateReport()" value="Gerar relatório">         
          <br><br>
          <div id="answer"></div>

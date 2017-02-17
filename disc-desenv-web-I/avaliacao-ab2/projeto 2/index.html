@@ -24,27 +24,15 @@
                 Número atual começa do 0 e vai somando 1 no final do laço.
                 Utilizo um do...while para fazer as iterações.                
 
-                Algoritimo: 
-
-                Verificar se número atual é primo
-                    se for soma a partialSum e adiciona +1 a oddsFoundQnt
-                Adicionar mais um ao número atual
-                Verificar se o oddsFoundQnt é igual a 10
-                    se for encerra a iteração e calcula a média
-                    se não for retorna para o inicio da iteração
-                Mostrar o resultado na tela
-                
-            */
-
-            // verifica se é primo
-            function isPrime(value) {
-                for(var i = 2; i < value; i++) {
-                    if(value % i === 0) {
-                        return false;
-                    }
-                }
-                return value > 1;
-            }
+                Algoritmo:
+                    Verificar se número atual é ímpar
+                        se for soma a partialSum e adiciona +1 a oddsFoundQnt
+                    Adicionar mais um ao número atual
+                    Verificar se o oddsFoundQnt é igual a 10
+                        se for encerra a iteração e calcula a média
+                        se não for retorna para o início da iteração
+                    Mostrar o resultado na tela                
+            */          
             
             // verifica se é ímpar
             function isOdd(value){ 
@@ -73,35 +61,7 @@
                        document.getElementById('answer').innerHTML = answer;
             }
 
-            function calculatePrimes(){
-                var oddNumbers = [], 
-                    partialSum = 0,
-                    primesFound = 0,
-                    iterationNumber=1, //iterações
-                    currentNumber = 1,
-                    answer="";
-                
-                do{
-                    
-                    if(isPrime(currentNumber)){           
-                        console.log('------- Iteração '+iterationNumber+' --------');
-                        console.log('Número primo encontrado: '+currentNumber);
-                        if(isOdd(currentNumber)){
-                            console.log("Número primo encontrado também é ímpar. Atualizando a lista de números ímpares...");
-                            oddNumbers.push(currentNumber);                    
-                            oddNumbers.forEach(function(item,i){
-                                console.log((i+1)+'º número ímpar: ' + item);
-                            });                            
-                        }                        
-                        partialSum += currentNumber;
-                        primesFound++;
-                    }
-                    iterationNumber++;
-                    currentNumber++;
-                }while(primesFound <= 10);
-
-
-            }
+            
          </script>
     </body>
 </html>

@@ -6,6 +6,84 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">        
     </head>
     <body>
-    
+        <h1>Cálculo da taxa de inflação</h1>
+        <p><strong>Se nenhum número for informado o relatório será gerado com base em 30 produtos.</strong></p>
+        <label for="itensQnt">Quantidade de produtos</label>
+        <input type="number" name="itensQnt" value="0" id="itensQnt">
+        <br><br>
+        <button onclick="calcularInflacao()">Gerar relatório</button>
+        <br><br>
+        <div id="answer"></div>
+        <script>
+            /*
+            Construir um botão que tenha como entrada, o número, o nome , o preço atual e 
+            anterior de uma série de 30 produtos e calcule a taxa de inflação sobre cada 
+            produto analisado. O botão deve calcular e imprimir no corpo do documento: 
+            nome do produto,diferença algébrica e percentual e média de preços dos 30 produtos.
+            */
+
+            /*
+                Algoritmo
+                    receber a quantidade de produtos
+                    criar um loop e gerar 30 produtos aleatórios
+                    iterar por esses produtos e calcular a inflacao, variação de preços e a média
+                    gerar e "imprimir" o relatório
+            */
+            
+            function calcularInflacao(){
+                var mediaPrecoAtual = mediaPrecoAnterior = mediaInflacao = 0,
+                    itensQnt = parseInt(document.getElementById('itensQnt').value),
+                    answer = br = "<br><br>";
+                    
+                if(!itensQnt || itensQnt <0){
+                    itensQnt = 30;
+                }
+                
+                //cria os produtos e calcula a inflação
+                for(var i = 0; i<itensQnt ; i++){
+                    var produto = {};
+                    produto.nome = "Produto "+ (i+1);
+                    
+                    //gera os preços aleatóriamente de forma que o preço atual seja maior que o anterior
+                    produto.precoAnterior = getRandomArbitrary(1,3); 
+                    produto.precoAtual = getRandomArbitrary(3,5);
+                    // calcula o aumento real e a inflação
+                    produto.aumentoReal = (produto.precoAtual -  produto.precoAnterior);
+                    produto.inflacao = (produto.aumentoReal / produto.precoAnterior)*100;
+                    //adiciona os valores às variáveis das médias
+                    mediaPrecoAtual += produto.precoAtual;
+                    mediaPrecoAnterior += produto.precoAnterior;
+                    mediaInflacao += produto.inflacao;
+
+                    //prepara as informações que serão mostradas no browser                    
+                    answer += "---------- Produto "+(i+1)+" ----------"+br;
+                    answer += "Descrição: " + produto.nome+br 
+                            + "Preço anterior: R$ " + produto.precoAnterior.toFixed(2) +br
+                            + "Preço atual: R$ " + produto.precoAtual.toFixed(2) +br
+                            + "Aumento real: R$ " + produto.aumentoReal.toFixed(2) +br
+                            + "Inflação calculada: " + produto.inflacao.toFixed(2) + "%"+br;
+                }
+
+                //dá um espaço e coloca uma linha antes de mostrar as médias
+                answer+= br+"<hr>"+br;
+
+                //calcula as médias e insere os valores na tela
+                mediaPrecoAtual = (mediaPrecoAtual/itensQnt).toFixed(2);
+                mediaPrecoAnterior = (mediaPrecoAnterior/itensQnt).toFixed(2);
+                mediaInflacao = (mediaInflacao/itensQnt).toFixed(2);
+                answer+= "Média dos preços atuais: R$ "+ mediaPrecoAtual+br
+                        + "Média dos preços anteriores: R$ " + mediaPrecoAnterior+br
+                        + "Média inflação: " +mediaInflacao+ "%"+ br;                
+
+                //insere os dados na tela
+                document.getElementById('answer').innerHTML=answer;            
+                
+            }
+            
+            //gera um número aleatório entre dois
+            function getRandomArbitrary(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+        </script>
     </body>
 </html>
