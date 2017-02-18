@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <title>Desenvolvimento de Software para WEB I</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+
+        <h1>Verificar se inteiro é primo</h1>
+        <label for="integer">Digite o inteiro: </label>
+        <br><br>
+        <input type="number" name="integer" id="integer" value="0">
+        <br><br>
+        <button type="button" onclick="verifyInteger()">Verificar se é primo</button>
+        <br><br>
+        <div id="answer"></div>
+    
+    <script>
+
+        /*
+            Algoritmo
+                recebe o número dado
+                verifica se o número está dentro intervalo definido no problema (maior que 1 e menor ou igual a 100)
+                    se estiver no intervalo
+                        verificar se é primo
+                            se for, prepara mensagem que diz que é primo
+                            se não for, prepara mensagem que diz que não é primo
+                    se não estiver no intervalo mostra uma mensagem informando isso
+                imprime a mensagem
+        */
+          // verifica se é primo
+            function isPrime(value) {
+                for(var i = 2; i < value; i++) {
+                    if(value % i === 0) {
+                        return false;
+                    }
+                }
+                return value > 1;
+            }
+
+            function verifyInteger(){
+                var numberToVerify = parseFloat(document.getElementById('integer').value),
+                    answer = br = "<br><br>";
+                console.log(numberToVerify);
+
+                if(numberToVerify>1 && numberToVerify <=100){
+                    if(isPrime(numberToVerify)){
+                        answer += "O número "+numberToVerify+ " é primo";
+                    }else{
+                        answer += "O número "+numberToVerify+ " não é primo";
+                    }
+
+                }else{
+                    answer+="Número digitado inválido. Por favor insira um número maior que 1 e menor ou igual a 100";
+                }
+
+                document.getElementById('answer').innerHTML = answer;
+            }
+    </script>
+    </body>
+</html>

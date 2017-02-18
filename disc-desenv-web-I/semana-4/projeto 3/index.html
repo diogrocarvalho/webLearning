@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Desenvolvimento de Software para WEB I</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+        <h1>Recomendação de bolsas</h1>
+        <p><strong> Se o número de alunos for inválido assume-se o valor 10 como quantidade.</strong></p>
+        
+        <label for="inputQnt">Informe quantos alunos você deseja avaliar</label>
+        <input type="number" name="inputQnt" id="inputQnt" value="0">
+        <br><br>
+        <p>Hoje estou com bastante vontade de digitar. Gostaria de gerar os inputs para que eu possa inserir os dados manualmente.</p>
+        <button type="button" onclick="generateInputs()">Gerar inputs</button>
+        <br><br>
+        <p for="generateInputsBtn">Não quero digitar tanto. Prefiro que você gere os alunos e calcule tudo automaticamente!</p>
+        <button type="button" id="generateInputsBtn" onclick="calculate('auto')">Gerar automaticamente</button>
+        <div id="inputs"></div>
+        <br><br>
+        <div id="answer"></div>
+
+    <script>
+        /*
+            Algoritmo
+                Receber os nomes e médias dos alunos
+                Verificar as condições baseadas nas notas de cada aluno (por iteração do for)
+                    se Média>=9 
+                        gerar saída com mensagem "é altamente recomendado"
+                    Média>=8 e < 9 
+                        gerar saída com mensagem "fortemente recomendado"
+                    Media>=7 mas <8 
+                        gerar saída com mensagem "recomendado"
+                    Média<7 
+                        gerar saída com mensagem "Não recomendado"
+                imprimir relatório
+                
+        */
+        function calculate(type){
+                document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML = "";
+                
+                var inputQnt = Math.floor(parseFloat(document.getElementById('inputQnt').value)),
+                    genName = new randomNamesGeneration(),
+                    students = [];
+
+                if(inputQnt < 1 || !inputQnt){inputQnt = 10;}                
+                
+                if(type === 'auto'){
+                    document.getElementById('inputs').innerHTML = "<br><hr><br>Alunos e médias gerados automaticamente.";                    
+                    for(var i = 0 ; i<inputQnt;i++){
+                        var student = {};
+                        student.name = genName.CreateNewName() + ('son da silva').toUpperCase();
+                        student.media = getRandomArbitrary(0,10);
+                        students.push(student);
+                    }
+                }else{                    
+                    for(var i = 0 ; i<inputQnt;i++){
+                        var student = {};
+                        student.name = document.getElementById('name'+(i+1)).value;
+                        student.media = parseFloat(document.getElementById('mediaAluno'+(i+1)).value);
+                        students.push(student);
+                    }
+                }
+                
+                var answer = br = "<br><br>";
+                students.forEach(function(student){
+
+                    answer += "Nome: " +student.name +br
+                           +  "Média: "+  student.media.toFixed(2)+br;
+
+                    answer +=student.name;
+                    if(student.media>=9){
+                        answer += " é altamente recomendado";
+                    }else if(student.media >=8 && student.media < 9){
+                        answer += " é fortemente recomendado";
+                    }else if(student.media >=7 && student.media < 8){
+                        answer += " é recomendado";
+                    }else if(student.media <7){
+                        answer += " não é recomendado";
+                    }
+
+                    answer += br +"<hr>";
+                });
+                document.getElementById('answer').innerHTML = answer;                
+            }
+
+            
+            function generateInputs(){
+                document.getElementById('answer').innerHTML = document.getElementById('answer').innerHTML = "";
+
+               var inputQnt = Math.floor(parseFloat(document.getElementById('inputQnt').value));
+               if(inputQnt < 1 || !inputQnt){inputQnt = 10;}
+                document.getElementById('inputs').innerHTML = "<br><hr><br>";
+                
+                for(var i=1 ; i <= inputQnt; i++){
+                        document.getElementById('inputs').appendChild( document.createElement("br"));
+                    var newLabel = document.createElement("label");
+                        newLabel.for = 'name' + i;
+
+                    var newLabelContent = document.createTextNode("Nome do aluno "+i+": ");
+                        newLabel.appendChild(newLabelContent);
+                        document.getElementById('inputs').appendChild( newLabel);
+                        
+                    var newInput = document.createElement("input");
+                        newInput.id = 'name' + i;
+                        newInput.type = 'text';
+                        document.getElementById('inputs').appendChild(newInput);
+                        
+                        document.getElementById('inputs').appendChild( document.createElement("br"));
+                        document.getElementById('inputs').appendChild( document.createElement("br"));
+                        
+
+                    var newLabel = document.createElement("label");
+                        newLabel.for = 'mediaAluno' + i;
+
+                    var newLabelContent = document.createTextNode("Média: do aluno "+i+": "); 
+                        newLabel.appendChild(newLabelContent);
+                        document.getElementById('inputs').appendChild( newLabel);
+                        
+                    var newInput = document.createElement("input");
+                        newInput.id = 'mediaAluno' + i;
+                        newInput.type = 'number';
+                        document.getElementById('inputs').appendChild(newInput);
+                        document.getElementById('inputs').appendChild( document.createElement("br"));
+                }
+                document.getElementById('inputs').appendChild( document.createElement("br"));
+                var span = document.createElement('span');
+                    span.innerHTML = '<button '+ 'onclick="calculate()"> Calcular </button>';
+                    document.getElementById('inputs').appendChild(span);
+
+            }
+            
+            
+
+
+            //Gera números aleatórios em um intervalo dado
+            function getRandomArbitrary(min, max) {
+                 min = Math.ceil(min);
+                 max = Math.floor(max);
+                 return Math.random() * (max - min + 1) + min;
+            }
+
+            //Gera nomes aleatoriamente
+            function randomNamesGeneration(){
+                var firstNameSyllables=[];
+                
+                this.Start = function(){
+                    firstNameSyllables = new Array();
+                    firstNameSyllables.push("val");
+                    firstNameSyllables.push("dis");
+                    firstNameSyllables.push("shi");
+                    firstNameSyllables.push("zag");
+                    firstNameSyllables.push("ander");
+                    firstNameSyllables.push("rash");
+                    firstNameSyllables.push("jos");
+                    firstNameSyllables.push("fer");
+                    firstNameSyllables.push("nan");
+                    firstNameSyllables.push("clei");
+                }
+
+                this.CreateNewName = function(){
+                    //cria um primeiro nome com 2-3 sílabas
+                    var firstName = "";
+                    var numberOfSyllablesInFirstName = Math.floor(Math.random() * 3) + 1;  
+                    for (var i = 0; i < numberOfSyllablesInFirstName; i++){                                 
+                        firstName += firstNameSyllables[Math.floor(Math.random() * firstNameSyllables.length-1) + 1];                        
+                    }                    
+                    return firstName.toUpperCase();
+                }
+                this.Start();
+            }
+
+
+
+        </script>
+    </body>
+</html>

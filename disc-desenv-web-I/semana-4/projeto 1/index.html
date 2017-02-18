@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Desenvolvimento de Software para WEB I</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+
+        <h1>Calcular erro em projetos</h1>
+        <button type="button" onclick="calculateErrors()">Calcula erros JavaScript</button>
+        <div id="answer"></div>
+
+        <script>
+        /*
+            Algoritmo 
+                - Inicia o contador de erros (errors) em 1
+                - Realiza um for aninhado onde o primeiro itera as semanas e o segundo os projetos da semanas
+                - Multiplica o valor de erros por 2 dentro do for interno
+                - Após terinar as iterações do for externo, prepara a mensagem de saída
+                - Mostra a mensagem na tela
+        */
+            function calculateErrors(){
+                var answer = br = "<br><br>",
+                errors = 1, aux = 0;
+
+                for(var i = 0 ; i < 4 ; i++){
+                    for(var j = 0 ; j<4; j++){
+                        errors = errors*2;
+                        aux++;
+                    }
+                }
+
+                answer += "É esperado que o aluno cometa " +errors+ " erros durante a disciplina";
+                document.getElementById('answer').innerHTML = answer;
+                
+            }
+        </script>
+    
+    </body>
+</html>

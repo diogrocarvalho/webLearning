@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Desenvolvimento de Software para WEB I</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+    </head>
+    <body>
+        <h1>Soma dos quadrados dos inteiros</h1>
+        <button type="button" onclick="calculate()">Calcular a soma dos quadrados</button>
+        <div id="answer"></div>
+
+        <script>
+
+        /*
+            Algoritmo
+                criar uma variável para armazenar a soma dos inteiros
+                atribuir o valor 1 à variável de repetição i do for
+                no for, multiplicar i por i e obter seu quadrado.
+                Somar esse valor à soma parcial (partialSum)
+                Preparar a saída para impressão
+                Imprimir o que se pede                
+        */
+
+            function calculate(){
+                var answer = br = "<br><br>",
+                partialSum = 0;
+
+                for(var i=1; i<=10; i++){
+                    squareNumber = (i*i)
+                    partialSum += squareNumber;
+                    
+                    answer += "<hr>"+br
+                           +  "Número atual: " + i +br
+                           +  "Quadrado do número: " + squareNumber + br
+                           +  "Soma parcial: " + partialSum + br;
+                }
+                
+                document.getElementById('answer').innerHTML = answer+br 
+                                                            + "Total da soma dos 10 primeiros inteiros: "
+                                                            + partialSum + br;
+            }
+        </script>
+    </body>
+</html>
