@@ -8,8 +8,9 @@
 <body ng-app="app" >
 
 <div ng-controller="myController as vm">
-    {{vm.text}}
-    <my-component></my-component>
+    <h2>{{vm.text}}</h2>
+    <input type="text" ng-model="vm.text">
+    <my-component text="vm.text"></my-component>
 </div>
 
 

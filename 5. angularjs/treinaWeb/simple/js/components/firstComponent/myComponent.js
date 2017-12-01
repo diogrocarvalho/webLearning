@@ -1,7 +1,10 @@
 angular.module('app')
 .component('myComponent', {
     templateUrl: './js/components/firstComponent/myComponent.html',
-    controller: MyComponentController,    
+    controller: MyComponentController,
+    bindings: {
+        text: '<'
+    }
 });
 
 function MyComponentController () {
