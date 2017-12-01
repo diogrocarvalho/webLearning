@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PokeDex</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body ng-app="app" >
+
+<div ng-controller="myController as vm">
+    {{vm.text}}
+    <my-component></my-component>
+</div>
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js" ></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-route.min.js" ></script>
+
+<script src="js/App.js" ></script>
+<script src="js/controllers/myController.js" ></script>
+<script src="js/components/firstComponent/myComponent.js" ></script>
+</body>
+</html>
